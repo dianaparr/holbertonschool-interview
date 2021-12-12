@@ -14,13 +14,15 @@ def canUnlockAll(boxes):
         Return:
             True if all boxes can be opened, else return False
     """
-    keysBoxes = set() #unordered collection of unique elements
+    #unordered collection of unique elements
+    keysBoxes = set()
 
     #initial check
     if boxes is None or len(boxes) == 0:
         return False
 
-    for nextKey, box in enumerate(boxes): #method adds a counter to an iterable and returns it in a form of enumerating object
+    #method adds a counter to an iterable and returns it in a form of enumerating object
+    for nextKey, box in enumerate(boxes):
         nextKey += 1
         for key in box:
             if key < len(boxes):
