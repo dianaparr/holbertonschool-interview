@@ -3,6 +3,7 @@
 
 import math
 
+
 def minOperations(n):
     """ Method that calculates the fewest number of operations needed
     to result in exactly n H characters in the file.
@@ -21,7 +22,8 @@ def minOperations(n):
     if n < 2 or type(n) != int:
         return 0
 
-    # run a loop from 2 to sqrt(n) and check if any number in range (2-sqrt(n)) divides n
+    # run a loop from 2 to sqrt(n) and check if any number in range
+    # (2-sqrt(n)) divides n
     for x in range(2, int(math.sqrt(n) + 1)):
         while n % x == 0:
             operationsAccums += x
