@@ -28,8 +28,8 @@ def validUTF8(data):
             if counterBytes == 1 or counterBytes > 4:
                 return False
         else:
-            if not (integerNum & shiftBitsLeft1) and not (
-                    integerNum & shiftBitsLeft2):
+            if not (integerNum & shiftBitsLeft1 and not (
+                    integerNum & shiftBitsLeft2)):
                 return False
         counterBytes -= 1
 
