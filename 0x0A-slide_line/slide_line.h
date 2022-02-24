@@ -7,4 +7,9 @@
 #define SLIDE_LEFT 0
 #define SLIDE_RIGHT 1
 
+int slide_line(int *line, size_t size, int direction);
+void slide_line_left(int *line, int size_);
+void slide_line_right(int *line, int size_);
+
+
 #endif /* SLIDE_LINE */
