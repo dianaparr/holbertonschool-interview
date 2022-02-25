@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SLIDE_LEFT 0
-#define SLIDE_RIGHT 1
+#define SLIDE_LEFT 'L'
+#define SLIDE_RIGHT 'R'
 
 int slide_line(int *line, size_t size, int direction);
 void slide_line_left(int *line, int size_);
