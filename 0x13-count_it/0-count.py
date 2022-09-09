@@ -4,7 +4,6 @@ from collections import Counter, defaultdict
 from requests import get
 
 
-
 def count_words(subreddit, word_list, countWords=None, after=None):
     """ Results should be printed in descending order,
         by the count, and if the count is the same for
@@ -20,8 +19,8 @@ def count_words(subreddit, word_list, countWords=None, after=None):
 
     res = get(
         'https://www.reddit.com/r/{}/hot.json'.format(subreddit),
-        headers = {'User-Agent': 'Mozilla/5.0'},
-        params = params,
+        headers={'User-Agent': 'Mozilla/5.0'},
+        params=params,
         allow_redirects=False
     )
 
@@ -40,7 +39,8 @@ def count_words(subreddit, word_list, countWords=None, after=None):
 
         if data.get('after') is None:
             keyValue = sorted(countWords.items(), key=lambda x: x[0])
-            for key, value in sorted(keyValue, key=lambda x: x[1], reverse=True):
+            for key, value in sorted(
+                                keyValue, key=lambda x: x[1], reverse=True):
                 print('{}: {}'.format(key, value))
         else:
             count_words(subreddit, word_list, countWords, data.get('after'))
