@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Making change
+"""
+0x19-Making change
 """
 
 
@@ -9,8 +10,8 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    coins.sort()
-    coins.reverse()
+    coins.sort(reverse=True)
+
     fewest = 0
     for coin in coins:
         if total <= 0:
@@ -19,7 +20,7 @@ def makeChange(coins, total):
         fewest += buff
         total -= (buff * coin)
 
-    if total != 0:
+    if total != 0 or fewest == 0:
         return -1
 
     return fewest
