@@ -1,40 +1,26 @@
 #!/usr/bin/python3
 """
-0x19. Making Change, task 0. Change comes from within
+0x19-Making change
 """
 
 
 def makeChange(coins, total):
-    """
-    Given a set of coin denominations, determines the fewest coins needed to
-    meet a given total value.
-    Args:
-        coins (list of (int)s): list of coin denominations available
-        total (int): target total value
-    Return:
-        total amount of coins needed to meet `total` value
-    """
-    if type(total) is not int or type(coins) is not list or not all(
-            [type(coin) is int for coin in coins]):
-        print("Invalid args")
-        return 0
-
+    """Determine the fewest number of coins needed
+    to meet a given amount total."""
     if total <= 0:
         return 0
 
     coins.sort(reverse=True)
 
-    total_coins = 0
-    remainder = total
-    for denom in coins:
-        if denom <= remainder:
-            curr = remainder // denom
-            total_coins += curr
-            remainder -= curr * denom
-        if remainder == 0:
+    fewest = 0
+    for coin in coins:
+        if total <= 0:
             break
+        buff = total // coin
+        fewest += buff
+        total -= (buff * coin)
 
-    if total_coins == 0 or remainder != 0:
+    if total != 0 or fewest == 0:
         return -1
 
-    return total_coins
+    return fewest
